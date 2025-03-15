@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digital Clock</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="Digital Clock" class="Clock"></div>
+    <script type="text/javascript">
+    function showTime(){
+
+        // date variable
+        var date = new Date();
+        // hour variable
+        var h = date.getHours();
+        // minutes variable
+        var m = date.getMinutes();
+        // seconds variable
+        var s = date.getSeconds();
+
+        var session = "AM";
+
+        if(h==0) {
+            h = 12; // 12 Hour Format
+        }
+
+        if(h>12) {
+            h=h-12; // 12 Hour Format
+            session= "PM";
+        }
+
+        h = (h<10)?"0"+h:h;
+        m = (m<10)?"0"+m:m
+        s = (s<10)?"0"+s:s;
+
+        // Print out the date
+        document.getElementById("Digital Clock").innerHTML = h + ":" + m + ":" + s + "" + session;
+
+        setTimeout(showTime, 1000);
+    }
+    showTime();
+    </script>
+</body>
+</html>
